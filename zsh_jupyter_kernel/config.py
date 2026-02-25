@@ -25,7 +25,7 @@ if logging_enabled:
 config["pexpect"] = {
     "encoding": "utf-8",
     "codec_errors": "replace",  # [codecs]
-    "timeout": None,  # [pexpect-spawn-timeout]
+    "timeout": 30,  # [pexpect-spawn-timeout]
     "logging_file_path": str(logging_dir_path / "pexpect.log"),
 }
 

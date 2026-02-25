@@ -1,24 +1,20 @@
-name: zsh jupyter kernel test
+name: test
 
-on: [ push ]
+on: workflow_dispatch
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [ "3.10" ]
+        python-version: ["3.10", "3.11", "3.12", "3.13"]
     steps:
-      - uses: actions/checkout@v3
-      - name: set up python ${{ matrix.python-version }}
-        uses: actions/setup-python@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
       - run: sudo apt-get install zsh
-      - name: install pipenv
-        run: curl https://raw.githubusercontent.com/pypa/pipenv/master/get-pipenv.py | python
-      - run: pipenv install --dev
-      - name: install zsh jupyter kernel
-        run: pipenv run python -m zsh_jupyter_kernel.install --sys-prefix
-      - name: test with pytest
-        run: pipenv run python -m pytest
+      - run: pip install uv
+      - run: uv sync --frozen
+      - run: uv run python -m zsh_jupyter_kernel.install --sys-prefix
+      - run: uv run pytest

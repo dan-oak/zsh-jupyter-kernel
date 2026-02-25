@@ -7,16 +7,10 @@ and enthusiasm — turn your scripts into notebooks!
 
 ## installation
 
-[PyPi](https://pypi.org/project/zsh-jupyter-kernel/):
+[PyPI](https://pypi.org/project/zsh-jupyter-kernel/):
 
-Pip
 ```sh
-python -m pip install zsh_jupyter_kernel
-```
-   
-Pipenv
-```sh
-pipenv install zsh_jupyter_kernel
+pip install zsh_jupyter_kernel
 ```
 
 ### install kernel file
@@ -24,4 +18,13 @@ pipenv install zsh_jupyter_kernel
 see the help command for details
 ```sh
 python -m zsh_jupyter_kernel.install --help
+```
+
+## development
+
+```sh
+pip install uv
+uv sync
+uv run python -m zsh_jupyter_kernel.install --sys-prefix
+uv run pytest
 ```
