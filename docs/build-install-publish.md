@@ -1,11 +1,8 @@
-https://packaging.python.org/en/latest/guides/distributing-packages-using-setuptools
+https://packaging.python.org/en/latest/tutorials/packaging-projects/
 
 ```zsh
-python -m pip install setuptools
-python -m pip install build
-python -m pip install twine
-
-python -m build
+pip install uv
+uv build
 
 twine upload --repository testpypi dist/*
 
