@@ -7,10 +7,18 @@ and enthusiasm — turn your scripts into notebooks!
 
 ## installation
 
-[PyPI](https://pypi.org/project/zsh-jupyter-kernel/):
+### [PyPI](https://pypi.org/project/zsh-jupyter-kernel/):
 
 ```sh
 pip install zsh_jupyter_kernel
+```
+
+### [conda-forge](https://anaconda.org/channels/conda-forge/packages/zsh-jupyter-kernel/overview):
+
+```sh
+conda create -n zsh-jupyter-kernel
+conda activate zsh-jupyter-kernel
+conda install -c conda-forge zsh-jupyter-kernel
 ```
 
 ### install kernel file
@@ -28,3 +36,4 @@ uv sync
 uv run python -m zsh_jupyter_kernel.install --sys-prefix
 uv run pytest
 ```
+
